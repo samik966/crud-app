@@ -48,7 +48,6 @@ const AddPost = () => {
 			formData.id = id
 		}
 		if (title && description) {
-			console.log(loading)
 			dispatch(dispatchAction(formData))
 			isSubmitted.current = true
 			setState({ title: '', description: '' })
