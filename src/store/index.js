@@ -1,9 +1,6 @@
-import { applyMiddleware, compose, createStore } from 'redux'
-import thunkMiddleware from 'redux-thunk'
-import { combinedReducers } from './reducers'
+import { configureStore } from '@reduxjs/toolkit'
+import { combinedReducers } from './slices'
 
-const middlewares = applyMiddleware(thunkMiddleware)
-const composedEnhacers = compose(middlewares, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
-
-export const store = createStore(combinedReducers, undefined, composedEnhacers)
-
+export const store = configureStore({
+  reducer: combinedReducers,
+})

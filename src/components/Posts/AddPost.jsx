@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import {
-	addPost,
-	fetchSinglePost,
-	updateSinglePost
-} from 'store/actions/postActions'
+	createPost,
+	fetchPostById,
+	updatePost
+} from 'store/slices/postSlice'
 
 const AddPost = () => {
 	const { loading, post } = useSelector((state) => state.posts)
@@ -14,12 +14,12 @@ const AddPost = () => {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 	const { id } = useParams()
-	const dispatchAction = !id ? addPost : updateSinglePost
+	const dispatchAction = !id ? createPost : updatePost
 	const text = !id ? 'Add Post' : 'Update Post'
 	const isSubmitted = useRef(false)
 	useEffect(() => {
 		if (id) {
-			dispatch(fetchSinglePost(id))
+			dispatch(fetchPostById(id))
 		} else {
 			setState({ title: '', description: '' })
 		}
@@ -48,7 +48,6 @@ const AddPost = () => {
 			formData.id = id
 		}
 		if (title && description) {
-			console.log(loading)
 			dispatch(dispatchAction(formData))
 			isSubmitted.current = true
 			setState({ title: '', description: '' })

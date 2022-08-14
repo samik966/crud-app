@@ -1,15 +1,14 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchPosts } from 'store/actions'
+import { fetchAllPosts } from 'store/slices/postSlice'
 import Post from './Post'
 import './Posts.scss'
 
 const AllPosts = () => {
 	const dispatch = useDispatch()
 	const { loading, posts } = useSelector((state) => state.posts)
-
 	useEffect(() => {
-		dispatch(fetchPosts())
+		dispatch(fetchAllPosts())
 	}, []) // eslint-disable-line react-hooks/exhaustive-deps
 
 	if (loading) {

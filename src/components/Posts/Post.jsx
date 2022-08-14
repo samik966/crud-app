@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { deleteSinglePost } from 'store/actions/postActions'
+import { deletePost } from 'store/slices/postSlice'
 
 const Post = ({ post }) => {
 	const { title, description, id } = post
@@ -12,7 +12,7 @@ const Post = ({ post }) => {
 	}
 
 	const handleDelete = () => {
-		dispatch(deleteSinglePost(id))
+		dispatch(deletePost(id))
 	}
 
 	return (
