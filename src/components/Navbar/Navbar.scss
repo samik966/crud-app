@@ -1,0 +1,13 @@
+.navbar {
+  .nav__links {
+    display: flex;
+    gap: 0.75rem;
+    .nav__link {
+      color: #fff;
+      text-transform: uppercase;
+      &.active {
+        color: var(--secondary);
+      }
+    }
+  }
+}
