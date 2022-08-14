@@ -1,2 +1,2 @@
-export { AllPosts, AddPost } from './Posts'
+export { AllPosts, PostForm } from './Posts'
 export { Navbar } from './Navbar'
