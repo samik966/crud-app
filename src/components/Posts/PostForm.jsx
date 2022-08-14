@@ -7,7 +7,7 @@ import {
 	updatePost
 } from 'store/slices/postSlice'
 
-const AddPost = () => {
+const PostForm = () => {
 	const { loading, post } = useSelector((state) => state.posts)
 	const [state, setState] = useState({ title: '', description: '' })
 	const { title, description } = state
@@ -98,4 +98,4 @@ const AddPost = () => {
 	)
 }
 
-export default AddPost
+export default PostForm
